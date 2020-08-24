@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+
+
+<TITLE>New Page</TITLE>
+</HEAD>
+<BODY>
+    <div style="display:none;">
+        <<OBJECT ID="testActiveX" WIDTH="0" HEIGHT="0" CLASSID="CLSID:bf7e50a7-7f9b-4d1e-be6a-ffef309a52d1">
+</OBJECT>
+    </div>
+    
+    
+    
+<SCRIPT LANGUAGE="JavaScript" >
+function passscan()
+{
+    testActiveX.clear();
+    var nRet = testActiveX.OpenPort();
+    var strRet = '';
+    if( nRet == 1 ) 
+    {
+      nRet = testActiveX.Scan();
+      if(nRet){
+        nRet= testActiveX.ReceiveData(30); // Time-Out 시간 설정(초)
+        
+        if( nRet == 1)
+        {
+          strRet = testActiveX.GetPassportInfo();
+          alert( 'passinfo:'+strRet);
+        }
+       }
+       testActiveX.clear();
+    }
+}
+</SCRIPT>
+<input type="button" value="passport  scan" onclick="passscan();">
+</BODY>
+</HTML>

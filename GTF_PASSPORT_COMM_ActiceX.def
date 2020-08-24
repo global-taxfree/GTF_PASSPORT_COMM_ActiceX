@@ -1,0 +1,9 @@
+; GTF_PASSPORT_COMM_ActiceX.def : Declares the module parameters.
+
+LIBRARY      "GTF_PASSPORT_COMM_ACTICEX.OCX"
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllRegisterServer   @3 PRIVATE
+	DllUnregisterServer @4 PRIVATE

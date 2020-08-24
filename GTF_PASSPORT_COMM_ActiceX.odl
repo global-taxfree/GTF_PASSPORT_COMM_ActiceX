@@ -1,0 +1,82 @@
+// GTF_PASSPORT_COMM_ActiceX.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (GTF_PASSPORT_COMM_ActiceX.tlb) that will become a resource in
+// GTF_PASSPORT_COMM_ActiceX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(91863AD0-C3A7-4687-B1D2-AEF25769717E), version(1.0),
+  helpfile("GTF_PASSPORT_COMM_ActiceX.hlp"),
+  helpstring("GTF_PASSPORT_COMM_ActiceX ActiveX Control module"),
+  control ]
+library GTF_PASSPORT_COMM_ACTICEXLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CGTF_PASSPORT_COMM_ActiceXCtrl
+
+	[ uuid(ABD0AD29-5E2A-4DEF-B018-DC48DC342099),
+	  helpstring("Dispatch interface for GTF_PASSPORT_COMM_ActiceX Control"), hidden ]
+	dispinterface _DGTF_PASSPORT_COMM_ActiceX
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CGTF_PASSPORT_COMM_ActiceXCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CGTF_PASSPORT_COMM_ActiceXCtrl)
+			[id(1)] short OpenPort();
+			[id(2)] short ClosePort();
+			[id(3)] short Scan();
+			[id(4)] short ScanCancel();
+			[id(5)] short ReceiveData(short TimeOut);
+			[id(6)] BSTR GetMRZ1();
+			[id(7)] BSTR GetMRZ2();
+			[id(8)] BSTR GetPassportInfo();
+			[id(9)] short Clear();
+			[id(10)] short CheckReceiveData();
+			[id(11)] short OpenPortByNum(short PorNum);
+			[id(12)] short OpenPortByNumber(short PorNum);
+			[id(13)] BSTR testAlert();
+			[id(14)] short IsOpen();
+			[id(15)] short SetPassportScanType(short nType);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CGTF_PASSPORT_COMM_ActiceXCtrl
+
+	[ uuid(1357B0DA-0E04-42CF-91A1-F6381EC9C503),
+	  helpstring("Event interface for GTF_PASSPORT_COMM_ActiceX Control") ]
+	dispinterface _DGTF_PASSPORT_COMM_ActiceXEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CGTF_PASSPORT_COMM_ActiceXCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CGTF_PASSPORT_COMM_ActiceXCtrl
+
+	[ uuid(BF7E50A7-7F9B-4D1E-BE6A-FFEF309A52D1),
+	  helpstring("GTF_PASSPORT_COMM_ActiceX Control"), control ]
+	coclass GTF_PASSPORT_COMM_ActiceX
+	{
+		[default] dispinterface _DGTF_PASSPORT_COMM_ActiceX;
+		[default, source] dispinterface _DGTF_PASSPORT_COMM_ActiceXEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
